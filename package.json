@@ -1,0 +1,62 @@
+{
+  "name": "dsh-workbuddy-native",
+  "version": "0.1.0",
+  "description": "DeepSeek Harness native LLM adapter for WorkBuddy credit-billed models: in-process adapter (no local proxy), per-site provider routes, live catalog-driven model list, device-code login, credit budget guards, live pricing and usage surfaces.",
+  "type": "module",
+  "main": "index.js",
+  "engines": {
+    "node": ">=24"
+  },
+  "exports": {
+    ".": {
+      "default": "./index.js"
+    },
+    "./client": {
+      "default": "./client.js"
+    },
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "lib"
+  ],
+  "keywords": [
+    "deepseek-harness",
+    "dsh-plugin",
+    "workbuddy",
+    "llm",
+    "adapter"
+  ],
+  "license": "SEE LICENSE IN LICENSE",
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "pluginCenter": {
+      "expectedEntries": [
+        "workbuddy-native"
+      ],
+      "expectedClientModules": [
+        "dsh-workbuddy-native"
+      ],
+      "expectedSkillIds": [],
+      "ownedData": [
+        {
+          "path": "workbuddy-native",
+          "label": "WorkBuddy 原生桥接的目录缓存、用量账本与配置"
+        }
+      ]
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-runtime",
+        "@deepseek-ai/dsh-client-ui-settings",
+        "@deepseek-ai/dsh-client-ui-layout"
+      ]
+    }
+  }
+}

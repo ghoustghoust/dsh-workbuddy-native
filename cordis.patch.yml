@@ -1,0 +1,7 @@
+# Bundle layer: mount the plugin entry only.
+# The WorkBuddy model list is NOT declared here — the plugin registers native
+# LLM provider routes whose models come from the live upstream catalog, so
+# there is no provider/models snapshot to keep in sync.
+- insert:
+  - id: workbuddy-native
+    name: dsh-workbuddy-native
